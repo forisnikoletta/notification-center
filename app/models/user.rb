@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   ############################################################################################
   ## PeterGate Roles                                                                        ##
   ## The :user role is added by default and shouldn't be included in this list.             ##
@@ -7,12 +6,11 @@ class User < ApplicationRecord
   ## The multiple option can be set to true if you need users to have multiple roles.       ##
   petergate(roles: [:admin, :client], multiple: false)                                      ##
   ############################################################################################ 
- 
+  
+  include DeviseTokenAuth::Concerns::User
 
-  #devise :database_authenticatable, :registerable,
-  #       :recoverable, :rememberable, :validatable
   # Include default devise modules. Others available are:
-   :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
