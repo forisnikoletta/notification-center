@@ -1,4 +1,4 @@
-class NotificationsController < ApplicationController
+class NotificationsController < JSONAPI::ResourceController
   before_action :set_notification, only: [:show, :update, :destroy]
 
   # GET /notifications

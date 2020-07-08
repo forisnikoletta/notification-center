@@ -79,6 +79,12 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
+    jbuilder (2.10.0)
+      activesupport (>= 5.0.0)
+    jsonapi-resources (0.10.2)
+      activerecord (>= 4.1)
+      concurrent-ruby
+      railties (>= 4.1)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -99,6 +105,8 @@ GEM
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    petergate (2.0.1)
+      activerecord (> 4.0.0)
     pg (1.2.3)
     puma (4.3.5)
       nio4r (~> 2.0)
@@ -169,7 +177,11 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   devise_token_auth
+  devise (~> 4.7, >= 4.7.2)
+  jbuilder (~> 2.7)
+  jsonapi-resources
   listen (~> 3.2)
+  petergate (~> 2.0, >= 2.0.1)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
   rack-cors
