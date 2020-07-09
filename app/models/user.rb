@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   validates_presence_of :email
 
-  has_many :blogs
+  has_many :notifications
 
   def first_name
     self.name.split.first
@@ -25,5 +25,5 @@ class User < ApplicationRecord
   def last_name
     self.name.split.last
   end
-    
+
 end
