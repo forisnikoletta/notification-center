@@ -17,7 +17,7 @@ class NotificationsController < JSONAPI::ResourceController
 
   # GET /notifications/1
   def show
-    if @notification.users_id == current_user.id
+    if @notification.users_id == current_user.id.to_s
       @notification.update_attributes(:seen => Time.now)
     end
     render json: @notification
