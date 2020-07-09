@@ -1,15 +1,25 @@
 class NotificationsController < JSONAPI::ResourceController
   before_action :set_notification, only: [:show, :update, :destroy]
+  access client: [:show, :index], client: {except: [:new, :create, :update, :edit]}, admin: :all
 
   # GET /notifications
-  def index
+  def index_admin
     @notifications = Notification.all
+
+    render json: @notifications
+  end
+
+  def index
+    @notifications = Notification.where(users_id: current_user.id)
 
     render json: @notifications
   end
 
   # GET /notifications/1
   def show
+    if @notifications.users_id == current_user.id
+      @notifications.update_attributes(:seen => Time.now)
+    end
     render json: @notification
   end
 
